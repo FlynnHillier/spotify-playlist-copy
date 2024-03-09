@@ -58,7 +58,8 @@ def __extract_playlist_track_ids(playlist) -> list[str]:
 
 
 def copy_playlist(playlist_id:str,
- target_user_existing_playlist : bool = True
+ target_user_existing_playlist : bool = True,
+ silent : bool = True,
  ) -> int:
   """copies the given playlist to the user's account
 
@@ -92,6 +93,9 @@ def copy_playlist(playlist_id:str,
 
   if(len(tracks) > 0):
     spotipy.playlist_add_items(playlist["id"], items=tracks)
+
+  if not silent:
+    print(f"copied {len(tracks)} track(s) from playlist '{playlist["name"]}'")
 
   return {
     "name":playlist["name"],
@@ -135,10 +139,8 @@ def copy_user_playlists(user_id:str, duplicates: bool = False, silent : bool = T
   copied = []
 
   for id in playlist_ids:
-    r = copy_playlist(id, target_user_existing_playlist=(not duplicates))
+    r = copy_playlist(id, target_user_existing_playlist=(not duplicates), silent=silent)
     copied.append(r)
-    if not silent:
-      print(f"copied {r["count"]} track(s) from playlist '{r["name"]}'")
 
   return copied
 
