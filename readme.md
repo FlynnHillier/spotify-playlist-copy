@@ -1,4 +1,4 @@
-# FQA
+# FAQ
 
 ### **Why is this useful?** <br>
 Spotify doesnt let users to easily copy another user's playlists, you are able to listen to them - however you are unable to edit the playlist in any way to truly make it your own. This script allows you to 'take ownership' over other user's playlists.
