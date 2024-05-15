@@ -53,6 +53,7 @@ You can find a `user id` or `playlist id` by navigating to either the 'playlist 
     - add a user <ins>with the email address of the account you intend to copy playlists to</ins> (name does not matter)
     - When the application is first ran, you will be prompted to authorize your app for your account, this is only done once. 
     - If you wish to copy playlists to another account in the future this step must be repeated for said account.
+      - You may also need to delete the `.cache` file to re-prompt app authorization for the new account. This way the script will copy the playlists to the correct account.
 
 ### Config.json
 Fill out the config.json file in your project's directory.
